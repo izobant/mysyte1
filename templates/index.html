@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to my website!</h1>
+<p>This is the homepage.</p>
+
+
+<script>
+    function autoRefresh() {
+        window.location = window.location.href;
+    }
+    setInterval('autoRefresh()', 2000);
+</script>
+
+{% for post in posts %}
+<div class="jumbotron" style="margin-top: 10px">
+    <h1 class="display-4">Моя ферма</h1>
+    <p class="lead">Текст</p>
+    <hr class="my-4">
+    <div id='temp'>Номер:{{ post[1] }}</div>
+    <br>
+    <div id='hid'>Первый вход:{{ post[5] }}</div>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="http://localhost:5000"
+           role="button">Обновить</a>
+    </p>
+</div>
+ {{post}}
+
+
+{% endfor %}
+
+{% endblock %}
+
+
+
